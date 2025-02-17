@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./stylesheets/styles.css" />
+  </head>
+  <div class="home-hero">
+    <h1 class="home-title">Steelers Golf Pool</h1>
+  </div>
+
+  <body>
+    <h1 class="title">Admin</h1>
+
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <form id="create-user-form" class="admin-form">
+            <h3>Create New User</h3>
+
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" />
+            <p class="error-message" id="username-error"></p>
+
+            <label for="team-name">Team Name</label>
+            <input type="text" name="team-name" id="team-name" />
+            <p class="error-message" id="team-name-err"></p>
+
+            <div class="center">
+              <input type="submit" value="Submit" class="admin-btn" />
+            </div>
+          </form>
+        </div>
+        <div class="col">
+          <form id="create-pool-form" class="admin-form">
+            <h3>Create New Pool</h3>
+            <select class="select" id="tournament-select">
+              <option selected disabled value="">Select Tournament</option>
+            </select>
+            <p class="error-message" id="select-pool-err"></p>
+
+            <div class="center">
+              <input type="submit" value="Submit" class="admin-btn" />
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <form id="create-userpool-form" class="admin-form">
+            <h3>Join Pool</h3>
+            <label>Select user</label>
+            <select class="select user-select">
+              <option selected disabled value="">Select User to Add</option>
+            </select>
+            <p class="error-message" id="select-user-err"></p>
+            <label for="pool-entry">Pool Entry Code</label>
+            <input type="text" name="pool-entry" id="pool-entry" />
+            <p class="error-message" id="pool-entry-err"></p>
+            <div class="center">
+              <input type="submit" value="Submit" class="admin-btn" />
+            </div>
+          </form>
+        </div>
+        <div class="col">
+          <form id="make-pick-form" class="admin-form">
+            <h3>Make Pick</h3>
+
+            <label for="user-pool">Select pool & Team</label>
+
+            <select class="select user-pool-select" id="pick-select-pool">
+              <option selected disabled value="">Select pool</option>
+            </select>
+            <p class="error-message" id="pick-pool-err"></p>
+
+            <label for="user-pool">Select player</label>
+
+            <select class="select tee-time-select" id="select-player">
+              <option selected disabled value="">Select player</option>
+            </select>
+            <p class="error-message" id="select-player-err"></p>
+
+            <div class="center">
+              <input type="submit" value="Submit" class="admin-btn" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="./admin.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./stylesheets/styles.css" />
+    <title>Golf Pool</title>
+  </head>
+  <body>
+    <div class="home-hero">
+      <h1 class="home-title">Steelers Golf Pool</h1>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <img
+            src="../images/sunset-belfry.jpg"
+            alt="golf-pic"
+            class="home-img" />
+        </div>
+        <div class="col">
+          <h1>PGA Majors and Signature Events</h1>
+          <h3>-Weekly draft</h3>
+          <h3>-Weekly winner</h3>
+          <h3>-Low score wins</h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="home-hero">
+      <h1 class="home-title" id="curr-tournament">Select a Tournament</h1>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <select class="select" id="tournament-select">
+          <option selected disabled value="">Select Tournament</option>
+        </select>
+      </div>
+
+      <h1 class="title" id="no-tourney"></h1>
+      <div class="row">
+        <table id="leaderboard"></table>
+      </div>
+      <div class="pagination-container" id="page-container"></div>
+
+      <h1 class="home-title">Pool Leaderboard</h1>
+
+      <div class="row">
+        <div
+          class="pool-leaderboard-container"
+          id="pool-leaderboard-container"></div>
+      </div>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
