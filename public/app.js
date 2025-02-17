@@ -1,4 +1,7 @@
-let http = 'http://68.183.194.171/'
+const http =
+  window.location.host === 'localhost'
+    ? 'http://localhost:8080/'
+    : 'http://68.183.194.171/'
 
 const tournamentSelect = document.getElementById('tournament-select')
 const leaderboardTable = document.getElementById('leaderboard')
@@ -179,7 +182,7 @@ async function createPaginationButtons(tournamentId, status) {
     if (!http) throw new Error('Base URL (http) is not defined')
 
     let response = await fetchData(
-      http + `/api/tournament-count/${tournamentId}/${status}`
+      http + `api/tournament-count/${tournamentId}/${status}`
     )
 
     let rowCount = Number(response.rowCount)
