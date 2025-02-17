@@ -22,15 +22,17 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          cd pga-data-scraper
+          cd pga-golf-scraper  # Change directory to pga-golf-scraper
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install -r requirements.txt  # Install dependencies from requirements.txt
+
       - name: Run Scraper
-        run: cd pga-data-scraper
-          python scraper.py
+        run: |
+          cd pga-golf-scraper  # Change directory to pga-golf-scraper
+          python scraper.py  # Run scraper.py from pga-golf-scraper/
 
       - name: Upload SQLite Database
         uses: actions/upload-artifact@v4
         with:
           name: pga-data
-          path: pga-data.db
+          path: pga-golf-scraper/pga-data.db # Upload pga-data.db from pga-golf-scraper/
