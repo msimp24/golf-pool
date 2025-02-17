@@ -3,7 +3,10 @@ const createPoolForm = document.getElementById('create-pool-form')
 const createUserPoolForm = document.getElementById('create-userpool-form')
 const makePickForm = document.getElementById('make-pick-form')
 
-let http = 'http://68.183.194.171'
+const host =
+  window.location.host === 'localhost'
+    ? 'http://localhost:8080'
+    : 'http://68.183.194.171'
 
 async function postData(url, data) {
   try {
@@ -73,7 +76,7 @@ createUserForm.addEventListener('submit', function (event) {
 
   // If form is valid, submit it
   if (isValid) {
-    postData(`${http}/admin/create-user`, data)
+    postData(`${host}/admin/create-user`, data)
     window.location.reload()
   }
 })
@@ -95,7 +98,7 @@ createPoolForm.addEventListener('submit', function (event) {
     data.tournamentId = selectedPool.value.trim()
   }
   if (isValid) {
-    postData(`${http}/admin/create-pool`, data)
+    postData(`${host}/admin/create-pool`, data)
     window.location.reload()
   }
 })
@@ -105,7 +108,7 @@ createPoolForm.addEventListener('submit', function (event) {
 const userSelect = document.querySelectorAll('.user-select')
 
 async function loadUsers() {
-  let users = await fetchData(`${http}/admin/get-users`)
+  let users = await fetchData(`${host}/admin/get-users`)
 
   // Create a new formatted array
   let userList = users.map((element) => ({
@@ -156,7 +159,7 @@ createUserPoolForm.addEventListener('submit', function (event) {
   }
 
   if (isValid) {
-    postData(`${http}/admin/create-user-pool`, data)
+    postData(`${host}/admin/create-user-pool`, data)
     window.location.reload()
   }
 })
@@ -164,7 +167,7 @@ createUserPoolForm.addEventListener('submit', function (event) {
 const userPoolSelect = document.querySelector('.user-pool-select')
 
 async function loadUserPool() {
-  let users = await fetchData(`${http}/admin/get-user-pools`)
+  let users = await fetchData(`${host}/admin/get-user-pools`)
 
   console.log(users)
 
@@ -189,7 +192,7 @@ loadUserPool()
 const teeTimesSelect = document.querySelector('.tee-time-select')
 
 async function loadTeeTimes() {
-  let players = await fetchData(http + '/admin/tee-sheet')
+  let players = await fetchData(host + '/admin/tee-sheet')
 
   // Create a new formatted array
   let teeTimesList = players.map((element) => ({
@@ -238,7 +241,7 @@ makePickForm.addEventListener('submit', function (event) {
   if (isValid) {
     console.log(data.userPoolId)
 
-    postData(`${http}/admin/make-pick`, data)
+    postData(`${host}/admin/make-pick`, data)
     window.location.reload()
     makePickForm.reset()
   }
