@@ -22,11 +22,11 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          cd pga-golf-scraper
+          cd pga-data-scraper
           python -m pip install --upgrade pip
           pip install -r requirements.txt
       - name: Run Scraper
-        run: cd pga-golf-scraper
+        run: cd pga-data-scraper
           python scraper.py
 
       - name: Upload SQLite Database
