@@ -3,7 +3,7 @@ const createPoolForm = document.getElementById('create-pool-form')
 const createUserPoolForm = document.getElementById('create-userpool-form')
 const makePickForm = document.getElementById('make-pick-form')
 
-let http = 'http://68.183.194.171/'
+let http = 'http://68.183.194.171'
 
 async function postData(url, data) {
   try {
