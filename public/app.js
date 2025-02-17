@@ -1,4 +1,4 @@
-let http = 'http://localhost:8080/'
+let http = 'http://68.183.194.171/'
 
 const tournamentSelect = document.getElementById('tournament-select')
 const leaderboardTable = document.getElementById('leaderboard')
