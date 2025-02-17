@@ -179,7 +179,7 @@ async function createPaginationButtons(tournamentId, status) {
     if (!http) throw new Error('Base URL (http) is not defined')
 
     let response = await fetchData(
-      `http://localhost:8080/api/tournament-count/${tournamentId}/${status}`
+      http + `/api/tournament-count/${tournamentId}/${status}`
     )
 
     let rowCount = Number(response.rowCount)
