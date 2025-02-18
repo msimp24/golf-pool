@@ -85,7 +85,7 @@ createPoolForm.addEventListener('submit', function (event) {
   event.preventDefault()
   let isValid = true
 
-  let selectedPool = document.getElementById('tournament-select')
+  let selectedPool = document.getElementById('admin-tournament-select')
   let poolErr = document.getElementById('select-pool-err')
 
   let data = {}
@@ -98,7 +98,10 @@ createPoolForm.addEventListener('submit', function (event) {
     data.tournamentId = selectedPool.value.trim()
   }
   if (isValid) {
+    alert(data.tournamentId)
+
     postData(`${host}/admin/create-pool`, data)
+
     window.location.reload()
   }
 })
@@ -246,3 +249,27 @@ makePickForm.addEventListener('submit', function (event) {
     makePickForm.reset()
   }
 })
+
+const adminTournamentSelect = document.getElementById('admin-tournament-select')
+
+async function loadTournaments() {
+  let tournaments = await fetchData(host + '/api/tournament/list')
+
+  // Create a new formatted array
+  let tournamentList = tournaments.map((element) => ({
+    name: element.name,
+    tournament_id: element.tournament_id,
+    status: element.status,
+  }))
+
+  tournamentList.forEach((element) => {
+    let option = document.createElement('option')
+    option.value = element.tournament_id
+    option.text = element.name
+
+    adminTournamentSelect.append(option)
+  })
+}
+
+// runs load tournament
+loadTournaments()
