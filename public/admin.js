@@ -111,6 +111,7 @@ createPoolForm.addEventListener('submit', function (event) {
 const userSelect = document.querySelectorAll('.user-select')
 
 async function loadUsers() {
+  console.log(host)
   let users = await fetchData(`${host}/admin/get-users`)
 
   // Create a new formatted array
