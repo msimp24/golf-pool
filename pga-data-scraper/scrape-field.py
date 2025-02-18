@@ -43,18 +43,24 @@ if response.status_code == 200:
    if table:
 
      columns = [header.text.strip() for header in table.find_all("th")]
+     columns[0] = 'tournament_id'
+     columns[1] = 'player'
+     columns[2] = 'tee_time'
      rows = []
      for row in table.find_all('tr')[1:]:
        cells = row.find_all('td')
        row_data = [cell.text.strip() for cell in cells]
        row_data[0] = get_tournament_id()
        rows.append(row_data)
-       
-   columns[0] = 'tournament_id'
-   columns[1] = 'player'
-   columns[2] = 'tee_time'
    
-  
-   df = pd.DataFrame(rows, columns = columns)
-   df.to_sql('tee_times', conn, if_exists='replace', index=False)
-   print('Tee times updated')    
+   
+       
+
+   
+   if table:
+      df = pd.DataFrame(rows, columns = columns)
+      df.to_sql('tee_times', conn, if_exists='replace', index=False)
+      print('Tee times updated')    
+      
+   else:
+     print('Tournament data not yet available')   
