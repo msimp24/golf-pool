@@ -5,8 +5,10 @@ const makePickForm = document.getElementById('make-pick-form')
 
 const host =
   window.location.host === 'localhost'
-    ? 'https://localhost:8080'
+    ? 'http://localhost:8080'
     : 'http://68.183.194.171'
+
+console.log(host)
 
 async function postData(url, data) {
   try {
