@@ -4,7 +4,12 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import sqlite3
 
-DB_PATH = os.path.join(os.getcwd(), 'pga-data.db')
+if os.path.exists('/var/www/golf-pool'):
+    environment = 'prod'
+    DB_PATH = '/var/www/golf-pool/pga-data-scraper/pga-data.db'
+else:
+    environment = 'dev'
+    DB_PATH = os.path.join(os.getcwd(), 'pga-data.db')
 
 conn = sqlite3.connect(DB_PATH)
 mycursor = conn.cursor()
