@@ -28,7 +28,6 @@ def get_tournament_id():
   return tournament_id
 
 def scrape_data_to_database(headers):
-    print('test')
   
     isNewWeek = True
   
@@ -94,6 +93,10 @@ def scrape_data_to_database(headers):
       mycursor.execute("UPDATE tournaments SET status = 'live' where tournament_id = ?" , (tournamentId,))
       
       if "Round 1" in status:
+        
+        mycursor.execute('delete from tee_times;')
+        conn.commit()
+        
         
         columns = ['tournament_id','Position','Player', 'Score','Today','Thru','R1', 'R2', 'R3', 'R4', 'Total']      
         

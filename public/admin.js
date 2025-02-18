@@ -5,7 +5,7 @@ const makePickForm = document.getElementById('make-pick-form')
 
 const host =
   window.location.host === 'localhost'
-    ? 'http://localhost:8080'
+    ? 'https://localhost:8080'
     : 'http://68.183.194.171'
 
 async function postData(url, data) {
@@ -98,8 +98,6 @@ createPoolForm.addEventListener('submit', function (event) {
     data.tournamentId = selectedPool.value.trim()
   }
   if (isValid) {
-    alert(data.tournamentId)
-
     postData(`${host}/admin/create-pool`, data)
 
     window.location.reload()
