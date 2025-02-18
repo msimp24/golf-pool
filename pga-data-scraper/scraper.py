@@ -6,6 +6,8 @@ import sqlite3
 
 DB_PATH = os.path.join(os.getcwd(), 'pga-data.db')
 
+print(DB_PATH)
+
 # Creates SQLite database connection
 conn = sqlite3.connect(DB_PATH)
 mycursor = conn.cursor()
@@ -90,11 +92,12 @@ def scrape_data_to_database(headers):
       
     elif(isNewWeek and status != 'Tournament Field'):
       
-      mycursor.execute("UPDATE tournaments SET status = 'live' where tournament_id = ?" , (tournamentId,))
-      
       if "Round 1" in status:
         
+        mycursor.execute("UPDATE tournaments SET status = 'live' where tournament_id = ?" , (tournamentId,))
+        
         mycursor.execute('delete from tee_times;')
+        
         conn.commit()
         
         
