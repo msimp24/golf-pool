@@ -4,7 +4,7 @@ const createUserPoolForm = document.getElementById('create-userpool-form')
 const makePickForm = document.getElementById('make-pick-form')
 
 const host =
-  window.location.host === 'localhost'
+  window.location.hostname === 'localhost'
     ? 'http://localhost:8080'
     : 'http://68.183.194.171'
 

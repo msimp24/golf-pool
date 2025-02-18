@@ -1,5 +1,5 @@
 const http =
-  window.location.host === 'localhost'
+  window.location.hostname === 'localhost'
     ? 'http://localhost:8080/'
     : 'http://68.183.194.171/'
 
