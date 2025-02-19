@@ -10,7 +10,7 @@ const prodPath = '/var/www/golf-pool'
 
 if (fs.existsSync(prodPath)) {
   environment = 'prod'
-  DB_PATH = path.join(prodPath, 'pga-data-scraper', 'pga-data.db')
+  DB_PATH = path.join(prodPath, 'database', 'pga-data.db')
 } else {
   environment = 'dev'
   DB_PATH = process.env.DB_URL
