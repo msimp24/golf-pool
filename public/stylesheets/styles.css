@@ -298,4 +298,7 @@ p {
     flex-direction: column;
     gap: 10px;
   }
+  .pool-leaderboard-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
