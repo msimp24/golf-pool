@@ -230,6 +230,9 @@ async function createPicksLeaderboard(id) {
     if (curr.Score === 'CUT') {
       curr.Score = 10
     }
+    if (isNaN(curr.Score)) {
+      curr.Score = 0
+    }
 
     let temp = String(curr.Score)
 
@@ -266,10 +269,12 @@ async function createPicksLeaderboard(id) {
     }
 
     console.log(acc)
+    document.getElementById('pool-leaderboard-text').style.display = 'block'
     return acc
   }, [])
 
   if (!cardsArray) {
+    document.getElementById('pool-leaderboard-text').style.display = 'none'
     console.error('No data found')
     return
   }
