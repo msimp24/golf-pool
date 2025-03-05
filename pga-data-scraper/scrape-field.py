@@ -30,8 +30,11 @@ def get_tournament_id():
   
   return tournament_id
  
- 
-url = f"https://www.espn.co.uk/golf/leaderboard/_/tournamentId/{get_tournament_id()}" 
+currWeek = get_tournament_id()
+
+print(currWeek)
+
+url = f"https://www.espn.co.uk/golf/leaderboard/_/tournamentId/{currWeek}" 
   
 response = requests.get(url, headers=headers)
   
