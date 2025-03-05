@@ -6,7 +6,7 @@ import sqlite3
 
 if os.path.exists('/var/www/golf-pool'):
     environment = 'prod'
-    DB_PATH = '/var/www/golf-pool/pga-data-scraper/pga-data.db'
+    DB_PATH = '/var/www/golf-pool/database/pga-data.db'
 else:
     environment = 'dev'
     DB_PATH = os.path.join(os.getcwd(), 'pga-data.db')
