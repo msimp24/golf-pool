@@ -31,7 +31,7 @@ def get_tournament_id():
   
   return tournament_id
  
-currWeek = get_tournament_id()
+currWeek = get_tournament_id() + 1
 
 print(currWeek)
 
