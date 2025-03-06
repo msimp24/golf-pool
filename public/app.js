@@ -268,8 +268,6 @@ async function createPicksLeaderboard(id) {
       })
     }
 
-    cardsArray.sort((a, b) => a.total - b.total)
-
     console.log(acc)
     document.getElementById('pool-leaderboard-text').style.display = 'block'
     return acc
