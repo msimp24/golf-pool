@@ -268,7 +268,9 @@ async function createPicksLeaderboard(id) {
       })
     }
 
+    acc.team.score.sort()
     console.log(acc)
+
     document.getElementById('pool-leaderboard-text').style.display = 'block'
     return acc
   }, [])
