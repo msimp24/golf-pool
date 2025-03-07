@@ -228,7 +228,7 @@ async function createPicksLeaderboard(id) {
       curr.Score = 0
     }
     if (curr.Score === 'CUT') {
-      curr.Score = 10
+      curr.Score = curr.Score + 10
     }
     if (isNaN(curr.Score)) {
       curr.Score = 0
@@ -268,10 +268,13 @@ async function createPicksLeaderboard(id) {
       })
     }
 
-    console.log(acc)
     document.getElementById('pool-leaderboard-text').style.display = 'block'
     return acc
   }, [])
+
+  cardsArray.forEach((card) => {
+    card.team.sort((a, b) => a.score - b.score)
+  })
 
   if (!cardsArray) {
     document.getElementById('pool-leaderboard-text').style.display = 'none'
