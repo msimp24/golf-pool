@@ -317,8 +317,12 @@ async function createPicksLeaderboard(id) {
     let total = document.createElement('p')
     total.textContent = 'Total'
 
+    let highScore = element.team.pop()
+
+    console.log(highScore.score)
+
     let totalScore = document.createElement('p')
-    totalScore.textContent = element.total
+    totalScore.textContent = element.total - highScore.score
 
     scoreDiv.append(total, totalScore)
     scoreContainer.append(scoreDiv)
