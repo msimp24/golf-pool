@@ -290,6 +290,10 @@ p {
   color: var(--primary-color);
 }
 
+.cross-out {
+  text-decoration: line-through;
+}
+
 /* Responsive Design */
 @media (max-width: 900px) {
   .row {

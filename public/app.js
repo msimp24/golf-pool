@@ -307,6 +307,11 @@ async function createPicksLeaderboard(id) {
       let playerScore = document.createElement('p')
       playerScore.textContent = el.score
 
+      if (element.team[element.team.length - 1] === el) {
+        playerName.classList.add('cross-out')
+        playerScore.classList.add('cross-out')
+      }
+
       if (Number(el.score) > 0) {
         playerScore.classList.add('pos-nums')
       }
