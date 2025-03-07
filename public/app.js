@@ -336,6 +336,15 @@ async function createPicksLeaderboard(id) {
 
     if (Number(element.total - highScore.score) > 0) {
       totalScore.textContent = '+' + (element.total - highScore.score)
+      totalScore.style.color = 'red'
+    }
+
+    if (Number(element.total - highScore.score) < 0) {
+      totalScore.style.color = 'green'
+    }
+
+    if (Number(element.total - highScore.score) == 0) {
+      totalScore.style.color = 'black'
     }
 
     scoreDiv.append(total, totalScore)
