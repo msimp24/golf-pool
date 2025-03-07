@@ -279,7 +279,7 @@ p {
   margin-top: 20px;
   font-size: 1.3rem;
   font-weight: bold;
-  color: var(--secondary-color);
+  color: black;
 }
 
 .pos-nums {
