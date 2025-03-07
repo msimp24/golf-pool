@@ -307,6 +307,13 @@ async function createPicksLeaderboard(id) {
       let playerScore = document.createElement('p')
       playerScore.textContent = el.score
 
+      if (Number(el.score) > 0) {
+        playerScore.classList.add('pos-nums')
+      }
+      if (Number(el.score) < 0) {
+        playerScore.classList.add('neg-nums')
+      }
+
       scoreDiv.append(playerName, playerScore)
 
       scoreContainer.append(scoreDiv)
@@ -318,8 +325,6 @@ async function createPicksLeaderboard(id) {
     total.textContent = 'Total'
 
     let highScore = element.team.pop()
-
-    console.log(highScore.score)
 
     let totalScore = document.createElement('p')
     totalScore.textContent = element.total - highScore.score

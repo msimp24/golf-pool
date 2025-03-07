@@ -282,6 +282,14 @@ p {
   color: var(--secondary-color);
 }
 
+.pos-nums {
+  color: red;
+}
+
+.neg-nums {
+  color: var(--primary-color);
+}
+
 /* Responsive Design */
 @media (max-width: 900px) {
   .row {
