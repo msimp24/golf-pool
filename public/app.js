@@ -334,6 +334,10 @@ async function createPicksLeaderboard(id) {
     let totalScore = document.createElement('p')
     totalScore.textContent = element.total - highScore.score
 
+    if (Number(element.total - highScore.score) > 0) {
+      totalScore.textContent = '+' + (element.total - highScore.score)
+    }
+
     scoreDiv.append(total, totalScore)
     scoreContainer.append(scoreDiv)
 
