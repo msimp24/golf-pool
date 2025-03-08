@@ -226,6 +226,8 @@ async function createPicksLeaderboard(id) {
 
     let status = true
 
+    console.log(curr.Total)
+
     let par = 72 * 2
 
     if (curr.Score === 'E') {
