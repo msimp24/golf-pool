@@ -236,6 +236,9 @@ async function createPicksLeaderboard(id) {
     if (curr.Score === 'CUT') {
       status = false
       curr.Score = curr.Total - par + 10
+      if (isNaN(curr.Score)) {
+        curr.Score = 10
+      }
     }
     if (isNaN(curr.Score)) {
       curr.Score = 0
