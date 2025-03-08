@@ -226,7 +226,7 @@ async function createPicksLeaderboard(id) {
 
     let status = true
 
-    console.log(curr.Total)
+    console.log(curr)
 
     let par = 72 * 2
 
@@ -236,7 +236,6 @@ async function createPicksLeaderboard(id) {
     if (curr.Score === 'CUT') {
       status = false
       curr.Score = curr.Total - par + 10
-      console.log(curr.Score)
     }
     if (isNaN(curr.Score)) {
       curr.Score = 0
