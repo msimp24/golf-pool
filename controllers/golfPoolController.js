@@ -107,7 +107,8 @@ const getLiveScorePicks = (req, res) => {
     up.user_id, 
     u.team_name,
     p.player_name, 
-    COALESCE(fl.Score, ll.Score) AS Score, 
+    COALESCE(fl.Score, ll.Score) AS Score,
+    COALESCE(fl.Total, ll.Total) AS Total,
     po.tournament_id, 
     po.id AS pool_id
 FROM picks AS p

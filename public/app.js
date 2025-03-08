@@ -226,15 +226,14 @@ async function createPicksLeaderboard(id) {
 
     let status = true
 
-    if (curr.Score === 'CUT') {
-      status = false
-    }
+    let par = 72 * 2
 
     if (curr.Score === 'E') {
       curr.Score = 0
     }
     if (curr.Score === 'CUT') {
-      curr.Score = 10
+      status = false
+      curr.Score = curr.Total - par + 10
     }
     if (isNaN(curr.Score)) {
       curr.Score = 0
