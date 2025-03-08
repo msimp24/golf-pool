@@ -117,9 +117,7 @@ JOIN pools AS po ON up.pool_id = po.id
 LEFT JOIN live_leaderboard AS ll ON p.player_name = ll.Player AND ll.tournament_id = po.tournament_id
 LEFT JOIN final_leaderboard AS fl ON p.player_name = fl.Player AND fl.tournament_id = po.tournament_id
 JOIN users AS u ON up.user_id = u.user_id 
-WHERE po.tournament_id = (?);
-;
-`,
+WHERE po.tournament_id = (?);`,
     [tournament_id],
     (err, rows) => {
       if (err) {
