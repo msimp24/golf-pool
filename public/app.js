@@ -224,11 +224,17 @@ async function createPicksLeaderboard(id) {
   let cardsArray = picksArray.reduce((acc, curr) => {
     let existing = acc.find((e) => e.user_id === curr.user_id)
 
+    let status = true
+
+    if (curr.Score === 'CUT') {
+      status = false
+    }
+
     if (curr.Score === 'E') {
       curr.Score = 0
     }
     if (curr.Score === 'CUT') {
-      curr.Score = curr.Score + 10
+      curr.Score = 10
     }
     if (isNaN(curr.Score)) {
       curr.Score = 0
@@ -249,19 +255,31 @@ async function createPicksLeaderboard(id) {
       )
 
       if (!playerExists) {
+        if (status == false) {
+          playerName = curr.player_name + ' (CUT)'
+        } else {
+          playerName = curr.player_name
+        }
+
         existing.team.push({
-          player: curr.player_name,
+          player: playerName,
           score: parseInt(curr.Score),
         })
       }
     } else {
+      if (status == false) {
+        playerName = curr.player_name + ' (CUT)'
+      } else {
+        playerName = curr.player_name
+      }
+
       acc.push({
         user_id: curr.user_id,
         team_name: curr.team_name,
         total: parseInt(curr.Score),
         team: [
           {
-            player: curr.player_name,
+            player: playerName,
             score: parseInt(curr.Score),
           },
         ],
