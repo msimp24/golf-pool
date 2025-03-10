@@ -138,6 +138,7 @@ async function createLeaderboardTable(id, page, limit) {
 async function loadTournaments() {
   let tournaments = await fetchData(http + 'api/tournament/list')
 
+  console.log(tournaments)
   // Create a new formatted array
   let tournamentList = tournaments.map((element) => ({
     name: element.name,
@@ -221,21 +222,22 @@ const leaderboardContainer = document.getElementById(
 async function createPicksLeaderboard(id) {
   let picksArray = await fetchData(http + `api/get-live-score-picks/${id}`)
 
+  let data = await fetchData(http + `api/tournament-info/${id}`)
+  let par = Number(data[0].par)
+
   let cardsArray = picksArray.reduce((acc, curr) => {
     let existing = acc.find((e) => e.user_id === curr.user_id)
 
     let status = true
 
-    console.log(curr)
-
-    let par = 72 * 2
+    let cutScore = par * 2
 
     if (curr.Score === 'E') {
       curr.Score = 0
     }
     if (curr.Score === 'CUT') {
       status = false
-      curr.Score = curr.Total - par + 10
+      curr.Score = curr.Total - cutScore + 10
       if (isNaN(curr.Score)) {
         curr.Score = 10
       }
