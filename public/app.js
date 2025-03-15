@@ -218,6 +218,10 @@ const leaderboardContainer = document.getElementById(
   'pool-leaderboard-container'
 )
 
+//create global array for leaderboard of the current pool
+
+const poolLeaderboard = []
+
 // retrieves data from the databased based on users selected picks
 async function createPicksLeaderboard(id) {
   let picksArray = await fetchData(http + `api/get-live-score-picks/${id}`)
@@ -234,6 +238,10 @@ async function createPicksLeaderboard(id) {
 
     if (curr.Score === 'E') {
       curr.Score = 0
+    }
+
+    if (curr.Score === 'WD') {
+      curr.Score = 10
     }
     if (curr.Score === 'CUT') {
       status = false
