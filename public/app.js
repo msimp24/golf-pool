@@ -234,6 +234,8 @@ async function createPicksLeaderboard(id) {
 
     let status = true
 
+    let wdStatus = true
+
     let cutScore = par * 2
 
     if (curr.Score === 'E') {
@@ -242,6 +244,7 @@ async function createPicksLeaderboard(id) {
 
     if (curr.Score === 'WD') {
       curr.Score = 10
+      wdStatus = false
     }
     if (curr.Score === 'CUT') {
       status = false
@@ -271,6 +274,8 @@ async function createPicksLeaderboard(id) {
       if (!playerExists) {
         if (status == false) {
           playerName = curr.player_name + ' (CUT)'
+        } else if (wdStatus == false) {
+          playerName = curr.player_name + ' (WD)'
         } else {
           playerName = curr.player_name
         }
