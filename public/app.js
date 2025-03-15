@@ -243,7 +243,7 @@ async function createPicksLeaderboard(id) {
     }
 
     if (curr.Score === 'WD') {
-      curr.Score = 10
+      curr.Score = 20
       wdStatus = false
     }
     if (curr.Score === 'CUT') {
