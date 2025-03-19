@@ -367,7 +367,6 @@ async function createPicksLeaderboard(id) {
     total.textContent = 'Total'
 
     let highScore = element.team.pop()
-    highScore = Number(highScore.score) + Number(element.team.pop())
 
     let totalScore = document.createElement('p')
     totalScore.textContent = element.total - highScore.score
