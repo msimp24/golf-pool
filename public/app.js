@@ -376,6 +376,8 @@ async function createPicksLeaderboard(id) {
 
     highScore.score = highScore.score + secondHighScore.score
 
+    console.log(highScore.score)
+
     console.log(element.total - highScore.score)
     let totalScore = document.createElement('p')
     totalScore.textContent = element.total - highScore.score
