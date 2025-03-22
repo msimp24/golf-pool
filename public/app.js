@@ -374,9 +374,10 @@ async function createPicksLeaderboard(id) {
     let highScore = element.team.pop()
     let secondHighScore = element.team.pop()
 
-    highScore.score = highScore.score + secondHighScore.score
+    console.log(highScore)
+    console.log(secondHighScore)
 
-    console.log(highScore.score)
+    highScore.score = highScore.score + secondHighScore.score
 
     console.log(element.total - highScore.score)
     let totalScore = document.createElement('p')
