@@ -40,8 +40,9 @@ const getLiveLeaderboardData = (req, res) => {
 }
 
 const getTournaments = (req, res) => {
+  let mastersId = 401703504
   db.all(
-    'select * from tournaments where tournament_id = 401703504',
+    `select * from tournaments where tournament_id = ${mastersId}`,
     (err, rows) => {
       if (err) {
         console.log(err)

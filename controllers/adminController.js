@@ -90,21 +90,24 @@ const makePick = (req, res) => {
   db.serialize(() => {
     db.run('BEGIN TRANSACTION')
 
-    db.run(`INSERT INTO picks (user_pool_id, player_name) VALUES (?, ?)`, [
-      userPoolId,
-      player,
-    ]).run(`DELETE FROM tee_times WHERE player = ?`, [player], (err) => {
-      if (err) {
-        return db.run('ROLLBACK', () =>
-          res.status(500).json({ status: 'failed', message: err.message })
+    db.run(
+      `INSERT INTO picks (user_pool_id, player_name) VALUES (?, ?)`,
+      [userPoolId, player],
+      function (err) {
+        if (err) {
+          return db.run('ROLLBACK', () =>
+            res.status(500).json({ status: 'failed', message: err.message })
+          )
+        }
+
+        db.run('COMMIT', () =>
+          res.status(200).json({
+            status: 'success',
+            message: 'Pick made',
+          })
         )
       }
-      db.run('COMMIT', () =>
-        res
-          .status(200)
-          .json({ status: 'success', message: 'Pick made & player removed' })
-      )
-    })
+    )
   })
 }
 
