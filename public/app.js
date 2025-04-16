@@ -344,7 +344,6 @@ async function createPicksLeaderboard(id) {
       let playerScore = document.createElement('p')
       playerScore.textContent = el.score
 
-      /* 
       if (element.team[element.team.length - 1] === el) {
         playerName.classList.add('cross-out')
         playerScore.classList.add('cross-out')
@@ -354,7 +353,6 @@ async function createPicksLeaderboard(id) {
         playerName.classList.add('cross-out')
         playerScore.classList.add('cross-out')
       }
-      */
 
       if (Number(el.score) > 0) {
         playerScore.classList.add('pos-nums')
@@ -373,13 +371,13 @@ async function createPicksLeaderboard(id) {
     let total = document.createElement('p')
     total.textContent = 'Total'
 
-    //let highScore = element.team.pop()
-    //let secondHighScore = element.team.pop()
+    let highScore = element.team.pop()
+    let secondHighScore = element.team.pop()
 
-    // highScore.score = highScore.score + secondHighScore.score
+    highScore.score = highScore.score + secondHighScore.score
 
     let totalScore = document.createElement('p')
-    totalScore.textContent = element.total
+    totalScore.textContent = element.total - highScore.score
 
     if (Number(element.total) > 0) {
       totalScore.textContent = '+' + element.total
