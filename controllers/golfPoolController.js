@@ -40,18 +40,14 @@ const getLiveLeaderboardData = (req, res) => {
 }
 
 const getTournaments = (req, res) => {
-  let mastersId = 401703504
-  db.all(
-    `select * from tournaments where tournament_id = ${mastersId}`,
-    (err, rows) => {
-      if (err) {
-        console.log(err)
-        res.status(500).send('Internal server error')
-      } else {
-        res.status(200).send(rows)
-      }
+  db.all(`select * from tournaments`, (err, rows) => {
+    if (err) {
+      console.log(err)
+      res.status(500).send('Internal server error')
+    } else {
+      res.status(200).send(rows)
     }
-  )
+  })
 }
 
 const getTournamentById = (req, res) => {
